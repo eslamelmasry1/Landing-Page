@@ -29,10 +29,10 @@ const sections = Array.from(document.querySelectorAll("section"));
 /**
  * End Global Variables
  * Begin Main Functions
- * Create a function with for...of loop inside.
- * Inside the for...of loop, create <li> element for each section.
- * Inside each <li> element add the anchor links and class by using innerHTML to link it to the correspondant section.
- * Use appendChild to store the <li> elements to the DOM.
+ * Create a forEach loop from section variable I've created before.
+ * Inside the forEach loop, I've created a function that consists of creating <li> tag for each section.
+ * Inside each <li> tag add the anchor links and class by using innerHTML to link it to the correspondant section.
+ * Use appendChild to store the <li> tags to the DOM.
 */
 // Build menu 
 
@@ -62,7 +62,7 @@ function viewport(element) {
 /**
  * End Helper Functions
  * Begin Events
- * 
+ * Add event listener to scroll to relevant section on link click., by using a function that activates each section once clicking it on the nav bar. 
 */
 document.addEventListener('scroll', function activeState() {
     for(section of sections) {
