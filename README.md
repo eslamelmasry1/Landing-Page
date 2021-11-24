@@ -9,16 +9,15 @@ In JavaScript:
 * Store the menu list in a variable called (navMenu).
 * Store all the sections as an array in a variable called (sections) to use it in the function I'll be creating afterwards.
 
-* Create a function with for...of loop inside.
-* Inside the for...of loop, create <li> tag for each section.
+* Create a forEach loop from section variable I've created before.
+* Inside the forEach loop, I've created a function that consists of creating <li> tag for each section.
 * Inside each <li> tag add the anchor links and class by using innerHTML to link it to the correspondant section.
 * Use appendChild to store the <li> tags to the DOM.
-* Call the function to the the navbar appears.
 
 * Create a function to get the position of the sections in the viewport by using getBoundingClientRect().
-* Create another function to set sections as active.
-* Add event listener to scroll to relevant section on link click.
+* Add event listener to scroll to relevant section on link click., by using a function that activates each section once clicking it on the nav bar.
 
 
 In CSS:
 * Set scroll-behavior to smooth.
+* I've added border-radius and changed the color of the gradient to rgba(0, 0, 0, 0.5), in order to see the Active State of the section more clearly.
