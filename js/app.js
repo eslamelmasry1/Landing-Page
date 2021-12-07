@@ -8,20 +8,26 @@ const sections = document.querySelectorAll('section');
 
 sections.forEach(function (section) {
     listElements = document.createElement("li");
-    //Another way to run the same function.
-    /*let anchor = document.createElement('a');   
-    anchor.href = "#" + `${section.id}`;
-    anchor.textContent = `${section.dataset.nav}`;
-    anchor.classList.add('menu__link');
-    listElements.append(anchor);*/
-
     //I could've use the above code, but for performance purposes, I prefer to use one line code as the following.
-    listElements.innerHTML = `<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`;
+    listElements.innerHTML = `<a href="#${section.id}" data="${section.id}" class="menu__link">${section.dataset.nav}</a>`;
     navBarList.appendChild(listElements);
 });
 
 //Storing all li tags in a variable to use it later.
-let menuList = document.querySelectorAll('li');
+let menuList = document.querySelectorAll('a');
+
+//Using forEach loop to add event listener for each anchor link.
+menuList.forEach( (menuItem) => {
+    menuItem.addEventListener('click', function smoothScroll(event) {
+        event.preventDefault();
+        //Store data attribute in the following variables.
+        let dataAttribute = menuItem.getAttribute("data");
+        let data = document.getElementById(dataAttribute);
+        //Using it with scrollIntoView(), so that when we click on the any link it scrolls smoothly to the relevant section.
+        data.scrollIntoView({behavior: "smooth", block: "center"});
+        
+    });
+});
 
 //Adding event listener that when scrolling runs the following function
 window.addEventListener('scroll', function () {
@@ -55,9 +61,16 @@ window.addEventListener('scroll', function () {
     }
 });
 
+
+
+
 //Adding event listener to scroll to Top button
 let btn = document.getElementById('btn');
 
 btn.addEventListener('click', function() {
-    window.scrollTo(0, 0)
-})
+    window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth'
+    });
+});
